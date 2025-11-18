@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Centered Video Player</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #fafafa;
+        }
+
+        /* Center the video */
+        video {
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Control bar centered */
+        .controls {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Small round icon buttons */
+        .controls button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            background: #f0f0f0;
+            cursor: pointer;
+            font-size: 22px;
+            margin-right: 10px;
+            transition: 0.3s ease;
+        }
+
+        .controls button:hover {
+            background: #dcdcdc;
+            transform: scale(1.08);
+        }
+    </style>
+
+</head>
+<body>
+
+<h3>POC: Chat Application with Spring AI, Angular UI, and OpenAI</h3>
+<video id="myVideo" width="900" height="550" autoplay muted loop playsinline>
+    <source src="assets/video/springaivideo.mp4" type="video/mp4">
+</video>
+
+<div class="controls">
+    <button onclick="backward()">⏪</button>
+    <button onclick="pauseVideo()">⏸</button>
+    <button onclick="playVideo()">▶</button>
+    <button onclick="forward()">⏩</button>
+</div>
+
+<script>
+    const video = document.getElementById("myVideo");
+
+    function playVideo() {
+        video.play();
+    }
+
+    function pauseVideo() {
+        video.pause();
+    }
+
+    function forward() {
+        video.currentTime += 10;
+    }
+
+    function backward() {
+        video.currentTime -= 10;
+        if (video.currentTime < 0) video.currentTime = 0;
+    }
+</script>
+
+</body>
+</html>
